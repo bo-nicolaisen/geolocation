@@ -1,3 +1,8 @@
+
+
+const myApp = document.getElementById('app');
+
+
 const options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -7,16 +12,18 @@ const options = {
 function success(pos) {
     const crd = pos.coords;
 
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+    let myText = `${crd} Your current position is: Latitude : ${crd.latitude} Longitude: ${crd.longitude} More or less ${crd.accuracy} meters.`;
+
+    myApp.innerText = myText;
+
 }
 
 function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+    myApp.innerText = `ERROR(${err.code}): ${err.message}`;
 }
 
+
+//myApp.innerText = 'test';
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-console.log('date: ' + new Date().toISOString());
+const myApiKey = '3e88f8919e892cfdc1b365a34e48b092';
