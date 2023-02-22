@@ -69,7 +69,7 @@ console.log(apiUrl);
             myResElement.innerText = `my error: ${error}`;
         });
 
-    myApp?.appendChild(myResElement);
+    myApp.appendChild(myResElement);
 
 }
 
