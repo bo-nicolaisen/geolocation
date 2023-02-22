@@ -33,5 +33,29 @@ function getLocationName(myLong, myLat) {
 
     const apiUrl = `http://api.positionstack.com/v1/reverse?access_key=${myApiKey}&query=${myLat},${myLong}`;
 
+    let myResElement = document.createElement('h2');
+
+
+    fetch(apiUrl, {
+        method: 'GET', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        //body: JSON.stringify(data),
+    }
+    ).then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            myResElement.innerText = `my data: ${data}`;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            myResElement.innerText = `my error: ${error}`;
+        });
+
+    myApp?.appendChild(myResElement);
+
 }
+
+
 
