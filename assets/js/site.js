@@ -16,6 +16,8 @@ function success(pos) {
 
     myApp.innerText = myText;
 
+    getLocationName(crd.longitude, crd.latitude);
+
 }
 
 function error(err) {
@@ -26,4 +28,10 @@ function error(err) {
 //myApp.innerText = 'test';
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-const myApiKey = '3e88f8919e892cfdc1b365a34e48b092';
+function getLocationName(myLong, myLat) {
+    const myApiKey = '3e88f8919e892cfdc1b365a34e48b092';
+
+    const apiUrl = `http://api.positionstack.com/v1/reverse?access_key=${myApiKey}&query=${myLat},${myLong}`;
+
+}
+
