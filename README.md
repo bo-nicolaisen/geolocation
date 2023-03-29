@@ -1,2 +1,2 @@
-# geolocation
+# geolocation og reverse geotagging
 test
